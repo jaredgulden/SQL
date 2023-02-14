@@ -1,0 +1,33 @@
+-- creating a music supply store database
+
+CREATE TABLE music_supply (id integer primary key, name TEXT, category TEXT, price INTEGER, quantity INTEGER);
+
+INSERT INTO music_supply VALUES
+
+(1, "Gibson Les Paul", "guitars", 1300, 2),
+(2, "Fender Stratocaster", "guitars", 700, 6),
+(3, "Focustrite Saffire Pro 26", "recording", 400, 3),
+(4, "Yamaha Stage Custom 4 piece", 'drums', 1200, 1),
+(5, "Fender Precision Bass", 'guitars', 1600, 2),
+(6, "Neuman U-87", 'recording', 3800, 1),
+(7, "M-Audio KeyLab", 'pianos', 350, 3),
+(8, "Gibson SG Standard", 'guitars', 2000, 1),
+(9, "Musicman Stingray Bass", 'guitars', 1300, 1),
+(10, "Prophet 600", "pianos", 4000, 2),
+(11, "Ludwig Vintage Snare", "drums", 850, 1),
+(12, "Novation Launchpad", "recording", 100, 3),
+(13, "Novation Launch Control", "recording", 150, 4),
+(14, "Fender Jazz Bass", "guitars", 1500, 2),
+(15, "Fender Offset Pawnshop Special", "guitars", 1500, 1);
+
+
+
+
+--This will sort the product from price low to high
+
+SELECT * FROM music_supply ORDER BY price asc;
+
+
+--how many total items do we have per category?
+
+SELECT category, SUM(quantity) FROM music_supply GROUP BY category;

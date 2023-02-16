@@ -139,13 +139,13 @@ SELECT COUNT(*) AS total_chairs_sold, country
         WHERE transaction_date > "1/6/09" AND product = "Chair" 
         GROUP BY country;
 
---Determine which states have loyal customers based on sales, which states have regular growth in sales, and which states have opportunity for growth in sales.
+--Determine which countries have major growth based on sales, which countries have normal growth, and which countries have opportunity for growth.
 
-SELECT state, 
+SELECT country, 
     CASE
-        WHEN count(*) < 2 then "Opportunity"
-        WHEN count(*) >= 2 and count(*) < 5 then "Regular"
-    ELSE "Loyalists"
+        WHEN count(*) < 2 then "Growth Opportunity"
+        WHEN count(*) >= 2 and count(*) < 5 then "Normal"
+    ELSE "Major Growth"
     END "Status"
 FROM sales
-GROUP BY state;
+GROUP BY country;
